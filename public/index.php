@@ -8,13 +8,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="css/main.css" type="text/css" rel="stylesheet">
     <title>Benefits Calculator</title>
   </head>
   <body>
     <header>
           <h1 id="titleText"> Employee Benefits Calculator </h1>
-          <p> For testing purposes, employee's IDs start at 1, and are in increments of 10. </p>
-          <p> (i.e. 1, 11, 21, etc.)</p>
+          <p id="testing"> For testing purposes, employee's IDs start at 1, and are in increments of 10. </p>
+          <p id="testing"> (i.e. 1, 11, 21, etc.)</p>
     </header>
     
     <form method="POST" action="handler.php">
@@ -28,7 +29,7 @@
             </p>
             <p>
             <?php if(isset($_SESSION['errors']['message'])) { ?>
-                    <span><?= $_SESSION['errors']['message'] ?></span>
+                    <span class="error"><?= $_SESSION['errors']['message'] ?></span>
             <?php } ?>
             </p>
       <section>

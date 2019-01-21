@@ -1,0 +1,43 @@
+body {
+    text-align: center;
+}
+form {
+    display: inline-block;
+}
+
+p, h1, h2, label{
+  font-family: 'Open Sans', sans-serif;
+}
+
+#testing {
+  font-style: italic;
+  font-size: 10pt;
+  line-height: 8px;
+}
+#dependent {
+  line-height: 8px;
+}
+
+.error{
+  color: red;
+}
+input[type=submit] {
+  width: 100%;
+  background-color: #003366;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #004390;
+}
+
+form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}

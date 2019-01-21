@@ -20,8 +20,6 @@ try {
 	$user = $dao->getEmployee($em_id);
 	if($user) {
 		$results['total'] = $dao->getBenefits($em_id);
-		//echo "hi:" $dao->getBenefits($em_id);
-		// loginUser($user);
 		redirectSuccess("index.php", $presets, $results);
 
 	} else {
@@ -30,33 +28,9 @@ try {
 	}
 } catch (Exception $e) {
 	echo $e->getMessage();
-
 	$errors['message'] = "Something went wrong.";
-	redirectError("login.php", $errors, $presets);
+	redirectError("index.php", $errors, $presets);
 }	
-
-// if (empty($errors)) {
-// 	try {
-// 		$dao = new Dao();
-// 		$user = $dao->getEmployee($em_id);
-// 		if($user) {
-// 			loginUser($user);
-// 			redirectSuccess("youRegistered.php");
-
-// 		} else {
-// 			$errors['message'] = "Invalid username or password.";
-
-// 			redirectError("login.php", $errors, $presets);
-// 		}
-// 	} catch (Exception $e) {
-// 		echo $e->getMessage();
-
-// 		$errors['message'] = "Something went wrong.";
-// 		redirectError("login.php", $errors, $presets);
-// 	}	
-// }else{
-// 	redirectError("login.php", $errors, $presets);
-// }
 
 ?>
 

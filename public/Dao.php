@@ -85,11 +85,25 @@ class Dao
 		$stmt->execute();
 
 		if(($em_id = $stmt->fetch())) {
-			// $digest = $user['password'];
 				return 1;
 		}
 		return 0;
-		// return $stmt->fetch();
+	}
+
+	public function addEmployee($em_first_name, $em_last_name){
+		$conn = $this->getConnection();
+		$query = "INSERT INTO employees (em_first_name, em_last_name) VALUES(:em_first_name, :em_last_name);";
+		$stmt = $conn->prepare($query);
+		$stmt->bindParam(':em_first_name', $em_first_name);
+		$stmt->bindParam(':em_last_name', $em_last_name);
+
+		try {
+			$stmt->execute();
+			return true;
+		} catch(PDOException $e) {
+			echo $e->getMessage();
+			return false;
+		}
 	}
 
 	public function validateUser($em_id){
