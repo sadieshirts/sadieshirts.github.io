@@ -9,7 +9,7 @@
           <h1 id="titleText"> Employee Benefits Calculator </h1>
     </header>
     
-    <form> <!-- method = "POST" action="handler.php" -->
+    <form method="POST" action="handler.php"> <!-- method = "POST" action="handler.php" -->
       <label for="em_id">Employee ID:</label>
       <input type="number" name="em_id">
     
