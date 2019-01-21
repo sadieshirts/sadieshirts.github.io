@@ -42,7 +42,7 @@
             <?php } ?> >
             <p>
             <?php if(isset($_SESSION['presets']['addedNew'])) { ?>
-                    <span>Benefit Total: <?= $_SESSION['presets']['addedNew'] ?></span>
+                    <span><?= $_SESSION['presets']['addedNew'] ?></span>
             <?php } ?>
             </p>
             <p>
@@ -53,6 +53,8 @@
       
       <div>
         <a href="#" onclick="addFields('addDiv')">Add Dependents</a>
+        <p id="testing"> Currently, dependents will not be added into the database, but input fields will appear.</p>
+        <p id="testing"> New employees will be added to the database.</p>
         <div id="container"/>
       </div>
 

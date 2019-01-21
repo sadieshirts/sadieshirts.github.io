@@ -7,6 +7,7 @@ session_start();
 
 $errors = array();
 $presets = array();
+$dependents = array();
 
 $em_first_name = trim($_POST['em_first_name']);
 $em_last_name = trim($_POST['em_last_name']);

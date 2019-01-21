@@ -1,6 +1,5 @@
 <?php
 require_once("../database/config.php");
-//require_once('includes/password_compat/lib/password/php');
 class Dao
 {
 	/**
@@ -34,6 +33,9 @@ class Dao
 		return $conn->getAttribute(constant("PDO::ATTR_CONNECTION_STATUS"));
 	}
 
+	/**
+	 * Returns the first and last name of employee with id $em_id.
+	 */
 	public function getEmployee($em_id)
 	{
 		$conn = $this->getConnection();
@@ -61,6 +63,9 @@ class Dao
 		return $totalCost;
 	}
 
+	/**
+	 * Returns the number of dependents of employee with id $em_id.
+	 */
 	public function getDependents($em_id) {
 		$conn = $this->getConnection();
 		$stmt = $conn->prepare("SELECT COUNT(*) AS total FROM dependents WHERE em_id = :em_id");
@@ -69,6 +74,9 @@ class Dao
 		return $stmt->fetch();
 	}
 
+	/**
+	 * Returns the number of dependents that start with 'a' of employee with id $em_id.
+	 */
 	public function getADependents($em_id) {
 		$conn = $this->getConnection();
 		$stmt = $conn->prepare("SELECT COUNT(*) AS total FROM dependents WHERE em_id = :em_id AND dep_first_name LIKE 'a%'");
@@ -77,6 +85,9 @@ class Dao
 		return $stmt->fetch();
 	}
 
+	/**
+	 * Returns 1 if employee's name with id $em_id starts with 'a', else 0.
+	 */
 	public function isA($em_id){
 		$conn = $this->getConnection();
 		$stmt = $conn->prepare("SELECT em_id FROM employees WHERE em_first_name LIKE 'a%'
@@ -90,6 +101,9 @@ class Dao
 		return 0;
 	}
 
+	/**
+	 * Adds a new employee to the database.
+	 */
 	public function addEmployee($em_first_name, $em_last_name){
 		$conn = $this->getConnection();
 		$query = "INSERT INTO employees (em_first_name, em_last_name) VALUES(:em_first_name, :em_last_name);";
@@ -104,21 +118,5 @@ class Dao
 			echo $e->getMessage();
 			return false;
 		}
-	}
-
-	public function validateUser($em_id){
-		$conn = $this->getConnection();
-		$stmt = $conn->prepare("SELECT * FROM employees WHERE em_id = :em_id");
-
-		$stmt->bindParam(':em_id', $em_id);
-		$stmt->execute();
-
-		if(($user = $stmt->fetch())) {
-			$digest = $user['password'];
-			if(password_verify($password, $digest)) {
-				return array('name' => $user['username'], 'id' => $user['user_id']);
-			}
-		}
-		return false;
 	}
 }
