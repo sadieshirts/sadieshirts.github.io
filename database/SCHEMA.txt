@@ -1,0 +1,43 @@
+SCHEMA
+
+employee schema
+mysql> SELECT * FROM employees;
++-------+---------------+--------------+
+| em_id | em_first_name | em_last_name |
++-------+---------------+--------------+
+|     1 | Floria        | Benjamin     |
+|    11 | Gregg         | Kelsch       |
+|    21 | Jerica        | Ricketts     |
+|    31 | Jenae         | Lahey        |
+|    41 | Rhiannon      | Reis         |
+|    51 | Magdalene     | Summerfield  |
+|    61 | Nana          | Dayton       |
+|    71 | Jo            | Carbonaro    |
+|    81 | Arlette       | Steiner      |
+|    91 | Harry         | Gramling     |
+|   101 | Carline       | Deitz        |
+|   111 | Stacie        | Allgeier     |
+|   121 | Krystle       | Kubota       |
+|   131 | Ashlee        | Larabee      |
+|   141 | Sam           | Siddall      |
+|   151 | Jeromy        | Forsman      |
+|   161 | Ma            | Cohee        |
+|   171 | Danica        | Vanhook      |
+|   181 | Asa           | Maliszewski  |
+|   191 | Tesha         | Danko        |
+|   201 | Art           | Lozada       |
++-------+---------------+--------------+
+
+
+mysql> SELECT * FROM dependents;
++--------+----------------+---------------+-------+
+| dep_id | dep_first_name | dep_last_name | em_id |
++--------+----------------+---------------+-------+
+|      1 | Leia           | Benjamin      |     1 |
+|     11 | Hariet         | Benjamin      |     1 |
+|     21 | Amy            | Benjamin      |     1 |
+|     31 | Liz            | Carbonaro     |    71 |
+|     41 | Al             | Maliszewski   |   181 |
+|     51 | Billy          | Smith         |   111 |
+|     61 | Butch          | Charlotte     |   191 |
++--------+----------------+---------------+-------+
