@@ -8,10 +8,10 @@ function redirectError($location, $errors, $presets = NULL) {
 	die;
 }
 
-function redirectSuccess($location, $user = NULL) {
-	if($user) {
-		$_SESSION['user'] = $user;
-	}
+function redirectSuccess($location) {
+	// if($user) {
+	// 	$_SESSION['user'] = $user;
+	// }
 	header("Location: $location");
 }
 

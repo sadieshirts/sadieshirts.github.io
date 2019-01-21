@@ -20,7 +20,7 @@ try {
 		$results['total'] = $dao->getBenefits($em_id);
 		//echo "hi:" $dao->getBenefits($em_id);
 		// loginUser($user);
-		redirectSuccess("index.php");
+		redirectSuccess("/");
 
 	} else {
 		$errors['message'] = "Invalid username or password.";
