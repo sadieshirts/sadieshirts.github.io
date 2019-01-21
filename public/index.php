@@ -1,122 +1,54 @@
-<!-- <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn Heroku - Hello World!</title>
-  </head>
-  <body>
-    <h1>Sadie Shirts!</h1>
-<style>
-h1 {
-  color: teal;
-  border: 3px teal solid;
-  font-size: 6em;
-  padding: 1em;
-  margin: 0.5em;
-  text-align: center;
-  font-family: sans-serif;
-}
-</style>
-  </body>
-</html> -->
-
-
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html>
   <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
+<!--     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <meta charset="UTF-8"> -->
+    <link href="css/main.css" type="text/css" rel="stylesheet">
+    <title>Benefits Calculator</title>
+  </head>
+  <body>
+    
+    <article id="merchandise">
+      <h1 id="titleText"> Login </h1>
+    </article>
 
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
+    <form class="loginForm" method = "POST" action="login-handler.php">
 
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
+        <section class="loginValues">
+          <p>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" maxlength="50" 
+            <?php if(isset($_SESSION['presets']['email'])) { ?>
+            value="<?= $_SESSION['presets']['email']?>">
+            <?php } ?>
+            <?php if(isset($_SESSION['errors']['email'])) { ?>
+                    <span id ="emailError" class="error"><?= $_SESSION['errors']['email'] ?></span>
+            <?php } ?>
+          </p>
+          <p>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <?php if(isset($_SESSION['errors']['password'])) { ?>
+                    <span id="passwordError" class="error"><?= $_SESSION['errors']['password'] ?></span>
+            <?php } ?>
+          </p>
+          <section>
+            <section id="productDesc">
+              <input id="button" type="submit" name="submit" value="LOGIN">
+              <?php if(isset($_SESSION['errors']['message'])) { ?>
+              <span id="matchError" class="error"><?= $_SESSION['errors']['message'] ?></span>
+              <?php } ?>
 
-button:hover {
-  opacity: 0.8;
-}
-
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
-
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
-
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-.container {
-  padding: 16px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
-}
-</style>
-</head>
-<body>
-
-<h2>Login Form</h2>
-
-<form action="/action_page.php">
-  <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
-  </div>
-
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-        
-    <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
-
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
-</form>
-
-</body>
+            </section>
+          </section>  
+        </section>
+        <!-- <section id="newUser">
+          <a id="pageLink" href="registration.php" id="pageLink">NEW? CREATE AN ACCOUNT>></a>
+        </section> -->
+    </form>
+    <?php unset($_SESSION['errors']);
+      unset ($_SESSION['presets']);?>
+  </body>
 </html>
