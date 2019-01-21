@@ -18,14 +18,14 @@
              }
              else {
                   document.createElement
-                  var newdiv = document.createElement('div');
-                  var newContent = document.createTextNode("Hello!");
+                  var newdiv = document.createElement('input');
+                  var newContent = document.createTextNode("dependent");
                   newdiv.appendChild(newContent);
                   document.getElementById(divName).appendChild(newdiv);
                   // var newdiv = document.createElement('div');
-                  // newdiv.innerHTML = "Entry " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
+                  // newdiv.innerHTML = "Dependent " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
                   // document.getElementById(divName).appendChild(newdiv);
-                  // counter++;
+                  counter++;
              }
         }
   </script>
