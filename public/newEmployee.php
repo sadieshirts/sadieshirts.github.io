@@ -22,13 +22,8 @@
              }
              else {
                   document.createElement
-                  // var newdiv = document.createElement('input');
-                  // var newContent = document.createTextNode("dependent");
-                  // newdiv.appendChild(newContent);
-                  // document.getElementById(divName).appendChild(newdiv);
                   var newdiv = document.createElement('div');
                   newdiv.innerHTML = "Dependent " + (counter + 1) + " <br><label for=\"firstname\">First Name:</label><input type=\"text\" name=\"f_names[]\" maxlength=\"50\"> <label for=\"lastname\">Last Name:</label><input type=\"text\" name=\"l_names[]\" maxlength=\"50\">";
-                  // <input type='text' name='myInputs[]'>";
                   document.getElementById(divName).appendChild(newdiv);
                   counter++;
              }
