@@ -18,13 +18,13 @@
              }
              else {
                   document.createElement
-                  var newdiv = document.createElement('input');
-                  var newContent = document.createTextNode("dependent");
-                  newdiv.appendChild(newContent);
-                  document.getElementById(divName).appendChild(newdiv);
-                  // var newdiv = document.createElement('div');
-                  // newdiv.innerHTML = "Dependent " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
+                  // var newdiv = document.createElement('input');
+                  // var newContent = document.createTextNode("dependent");
+                  // newdiv.appendChild(newContent);
                   // document.getElementById(divName).appendChild(newdiv);
+                  var newdiv = document.createElement('div');
+                  newdiv.innerHTML = "Dependent " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
+                  document.getElementById(divName).appendChild(newdiv);
                   counter++;
              }
         }
