@@ -11,16 +11,21 @@
     <title>Benefits Calculator</title>
     <script type="text/javascript">
         var counter = 1;
-        var limit = 3;
+        var limit = 15;
         function addFields(divName){
              if (counter == limit)  {
                   alert("You have reached the limit of adding " + counter + " inputs");
              }
              else {
+                  document.createElement
                   var newdiv = document.createElement('div');
-                  newdiv.innerHTML = "Entry " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
+                  var newContent = document.createTextNode("Hello!");
+                  newdiv.appendChild(newContent);
                   document.getElementById(divName).appendChild(newdiv);
-                  counter++;
+                  // var newdiv = document.createElement('div');
+                  // newdiv.innerHTML = "Entry " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
+                  // document.getElementById(divName).appendChild(newdiv);
+                  // counter++;
              }
         }
   </script>
@@ -37,10 +42,10 @@
       <label for="lastname">Last Name:</label>
       <input type="text" name="lastname" maxlength="50">
       
-      <section>
-        <a href="#" onclick="addFields('dynamicInput')">Add Dependents</a>
+      <div id="addDiv">
+        <a href="" onclick="addFields('addDiv')">Add Dependents</a>
         <div id="container"/>
-      </section>
+      </div>
 
       <section>
         <p>Click below to SUBMIT new employee and/or dependents</p>
