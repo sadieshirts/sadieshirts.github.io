@@ -14,8 +14,8 @@
   <head>
     <title>Benefits Calculator</title>
     <script type="text/javascript">
-        var counter = 1;
-        var limit = 15;
+        var counter = 0;
+        var limit = 10;
         function addFields(divName){
              if (counter == limit)  {
                   alert("You have reached the limit of adding " + counter + " inputs");
@@ -29,7 +29,8 @@
                   var newdiv = document.createElement('div');
                   newdiv.innerHTML = "Dependent " + (counter + 1) + " <br><label for=\"firstname\">First Name:</label><input type=\"text\" name=\"f_names[]\" maxlength=\"50\"> <label for=\"lastname\">Last Name:</label><input type=\"text\" name=\"l_names[]\" maxlength=\"50\">";
                   // <input type='text' name='myInputs[]'>";
-                  document.getElementById(divName).appendChild(newdiv);
+                  document.insertBefore(document.getElementById(divName), newdiv);
+                  // document.getElementById(divName).appendChild(newdiv);
                   counter++;
              }
         }
@@ -47,12 +48,12 @@
       <label for="lastname">Last Name:</label>
       <input type="text" name="lastname" maxlength="50">
       
-      <div id="addDiv">
+      <div>
         <a href="#" onclick="addFields('addDiv')">Add Dependents</a>
         <div id="container"/>
       </div>
 
-      <section>
+      <section id="addDiv">
         <p>Click below to SUBMIT new employee and/or dependents</p>
         <input id="button" type="submit" name="submit" value="ADD NEW">
       </section>
