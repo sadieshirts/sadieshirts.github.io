@@ -47,7 +47,7 @@ class Dao
 	{
 		$conn = $this->getConnection();
 		$numDependents = $this->getDependents($em_id);
-		$numADependents = $this->numADependents($em_id);
+		$numADependents = $this->getADependents($em_id);
 		$isA = $this->isA($em_id);
 
 		$employeeBenefit = 1000;
@@ -57,14 +57,13 @@ class Dao
 		$numPaychecks = 26;
 
 
-		$totalCost = ($employeeBenefit - ($isA * $aDiscount * $employeeBenefit)) +
-						($numDependents * $depBenefit - ($numADependents * $aDiscount * $depBenefit));
+		$totalCost = ($employeeBenefit - ($isA * $aDiscount * $employeeBenefit)) + ($numDependents["total"] * $depBenefit - ($numADependents["total"] * $aDiscount * $depBenefit));
 		return $totalCost;
 	}
 
 	public function getDependents($em_id) {
 		$conn = $this->getConnection();
-		$stmt = $conn->prepare("SELECT COUNT(dep_first_name) FROM dependents WHERE em_id = :em_id");
+		$stmt = $conn->prepare("SELECT COUNT(*) AS total FROM dependents WHERE em_id = :em_id");
 		$stmt->bindParam(":em_id", $em_id);
 		$stmt->execute();
 		return $stmt->fetch();
@@ -72,7 +71,7 @@ class Dao
 
 	public function getADependents($em_id) {
 		$conn = $this->getConnection();
-		$stmt = $conn->prepare("SELECT COUNT(dep_first_name) FROM dependents WHERE em_id = :em_id AND dep_first_name LIKE 'a%'");
+		$stmt = $conn->prepare("SELECT COUNT(*) AS total FROM dependents WHERE em_id = :em_id AND dep_first_name LIKE 'a%'");
 		$stmt->bindParam(":em_id", $em_id);
 		$stmt->execute();
 		return $stmt->fetch();

@@ -11,7 +11,9 @@ $errors = array();
 $presets = array();
 $results = array();
 
-
+if(($results) < 0) {
+ 	$errors['results'] = "Invalid value.";
+ }
 
 try {
 	$dao = new Dao();
@@ -20,11 +22,10 @@ try {
 		$results['total'] = $dao->getBenefits($em_id);
 		//echo "hi:" $dao->getBenefits($em_id);
 		// loginUser($user);
-		redirectSuccess("index.php");
+		redirectSuccess("index.php", $presets, $results);
 
 	} else {
 		$errors['message'] = "Invalid Employee ID.";
-
 		redirectError("index.php", $errors, $presets);
 	}
 } catch (Exception $e) {
@@ -33,11 +34,6 @@ try {
 	$errors['message'] = "Something went wrong.";
 	redirectError("login.php", $errors, $presets);
 }	
-
-
-
-
-
 
 // if (empty($errors)) {
 // 	try {
