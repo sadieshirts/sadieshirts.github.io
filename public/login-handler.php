@@ -33,16 +33,16 @@ if (empty($errors)) {
 		} else {
 			$errors['message'] = "Invalid username or password.";
 
-			redirectError("login.php", $errors, $presets);
+			redirectError("index.php", $errors, $presets);
 		}
 	} catch (Exception $e) {
 		echo $e->getMessage();
 
 		$errors['message'] = "Something went wrong.";
-		redirectError("login.php", $errors, $presets);
+		redirectError("index.php", $errors, $presets);
 	}	
 }else{
-	redirectError("login.php", $errors, $presets);
+	redirectError("index.php", $errors, $presets);
 }
 ?>
 
