@@ -18,7 +18,6 @@ try {
 	$user = $dao->getEmployee($em_id);
 	if($user) {
 		$results['total'] = $dao->getBenefits($em_id);
-		echo "results: " + $dao->getBenefits($em_id);
 		// loginUser($user);
 		// redirectSuccess("youRegistered.php");
 
