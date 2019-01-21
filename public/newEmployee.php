@@ -21,7 +21,7 @@
                   var newdiv = document.createElement('input');
                   var newContent = document.createTextNode("dependent");
                   newdiv.appendChild(newContent);
-                  document.body.appendChild(newdiv);
+                  document.getElementById(divName).appendChild(newdiv);
                   // var newdiv = document.createElement('div');
                   // newdiv.innerHTML = "Dependent " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
                   // document.getElementById(divName).appendChild(newdiv);
@@ -43,7 +43,7 @@
       <input type="text" name="lastname" maxlength="50">
       
       <div id="addDiv">
-        <a href="" onclick="addFields('addDiv')">Add Dependents</a>
+        <a href="#" onclick="addFields('addDiv')">Add Dependents</a>
         <div id="container"/>
       </div>
 
