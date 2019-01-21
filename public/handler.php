@@ -20,10 +20,10 @@ try {
 		$results['total'] = $dao->getBenefits($em_id);
 		//echo "hi:" $dao->getBenefits($em_id);
 		// loginUser($user);
-		redirectSuccess("/");
+		redirectSuccess("index.php");
 
 	} else {
-		$errors['message'] = "Invalid username or password.";
+		$errors['message'] = "Invalid Employee ID.";
 
 		redirectError("index.php", $errors, $presets);
 	}

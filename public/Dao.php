@@ -34,10 +34,10 @@ class Dao
 		return $conn->getAttribute(constant("PDO::ATTR_CONNECTION_STATUS"));
 	}
 
-		public function getEmployee($em_id)
+	public function getEmployee($em_id)
 	{
 		$conn = $this->getConnection();
-		$stmt = $conn->prepare("SELECT * FROM employees WHERE em_id = :em_id");
+		$stmt = $conn->prepare("SELECT em_first_name, em_last_name FROM employees WHERE em_id = :em_id");
 		$stmt->bindParam(":em_id", $em_id);
 		$stmt->execute();
 		return $stmt->fetch();
