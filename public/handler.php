@@ -1,7 +1,7 @@
 <?php
 require_once("Dao.php");
-// require_once('phpincludes/form-helper.php');
-// require_once('phpincludes/session-helper.php');
+require_once('phpincludes/form-helper.php');
+require_once('phpincludes/session-helper.php');
 
 session_start();
 
@@ -18,9 +18,9 @@ try {
 	$user = $dao->getEmployee($em_id);
 	if($user) {
 		$results['total'] = $dao->getBenefits($em_id);
-		echo "hi:" $dao->getBenefits($em_id);
+		//echo "hi:" $dao->getBenefits($em_id);
 		// loginUser($user);
-		// redirectSuccess("youRegistered.php");
+		redirectSuccess("index.php");
 
 	} else {
 		$errors['message'] = "Invalid username or password.";

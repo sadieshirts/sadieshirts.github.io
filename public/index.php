@@ -1,5 +1,7 @@
 <?php 
     require_once("Dao.php");
+    require_once('phpincludes/form-helper.php');
+    require_once('phpincludes/session-helper.php');
     session_start();
     $dao = new Dao();
 ?>
