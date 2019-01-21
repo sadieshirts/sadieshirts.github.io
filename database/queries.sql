@@ -1,9 +1,12 @@
---amount of dependents for x employee:
+--amount of dependents for x employee
 SELECT SUM(f_name) WHERE em_id = x:em_id;
 
---amount of dependents for x employee that starts w/ 'a';
+--amount of dependents for x employee that starts w/ 'a'
 SELECT SUM(f_name) WHERE em_id = x:em_id
-AND f_name LIKE 'a';
+AND f_name LIKE 'a%';
+
+--employees that start with 'a'
+SELECT em_id WHERE f_name LIKE 'a%';
 
 --Check if user exists
 SELECT email FROM users WHERE email = X;
