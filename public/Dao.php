@@ -25,6 +25,15 @@ class Dao
 		return $conn; 
 	}
 
+	/**
+	 * Returns the database connection status string.
+	 */
+	public function getConnectionStatus()
+	{
+		$conn = $this->getConnection();
+		return $conn->getAttribute(constant("PDO::ATTR_CONNECTION_STATUS"));
+	}
+
 
 	public function getEmployee($em_id)
 	{
@@ -177,14 +186,7 @@ class Dao
 			return false;
 		}
 	}
-	/**
-	 * Returns the database connection status string.
-	 */
-	public function getConnectionStatus()
-	{
-		$conn = $this->getConnection();
-		return $conn->getAttribute(constant("PDO::ATTR_CONNECTION_STATUS"));
-	}
+
 
 	// public function validateUser($email, $password){
 	// 	$conn = $this->getConnection();
