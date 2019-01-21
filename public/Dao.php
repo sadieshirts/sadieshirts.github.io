@@ -64,7 +64,7 @@ class Dao
 
 	public function getDependents($em_id) {
 		$conn = $this->getConnection();
-		$stmt = $conn->prepare("SELECT SUM(f_name) FROM dependents WHERE em_id = :em_id");
+		$stmt = $conn->prepare("SELECT COUNT(f_name) FROM dependents WHERE em_id = :em_id");
 		$stmt->bindParam(":em_id", $em_id);
 		$stmt->execute();
 		return $stmt->fetch();
@@ -72,7 +72,7 @@ class Dao
 
 	public function getADependents($em_id) {
 		$conn = $this->getConnection();
-		$stmt = $conn->prepare("SELECT SUM(f_name) FROM dependents WHERE em_id = :em_id AND f_name LIKE 'a%'");
+		$stmt = $conn->prepare("SELECT COUNT(f_name) FROM dependents WHERE em_id = :em_id AND f_name LIKE 'a%'");
 		$stmt->bindParam(":em_id", $em_id);
 		$stmt->execute();
 		return $stmt->fetch();
