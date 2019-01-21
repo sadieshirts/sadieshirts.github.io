@@ -1,8 +1,12 @@
 <?php 
     session_start(); 
-    $myInputs = $_POST["myInputs"];
-    foreach ($myInputs as $eachInput) {
-         echo $eachInput."<br>";
+    $f_names = $_POST["f_names"];
+    $l_names = $_POST["l_names"];
+    foreach ($f_names as $f_input) {
+         echo $f_input."<br>";
+    }
+    foreach ($l_names as $l_input) {
+         echo $l_input."<br>";
     }
 ?>
 <!DOCTYPE html>
@@ -23,7 +27,8 @@
                   // newdiv.appendChild(newContent);
                   // document.getElementById(divName).appendChild(newdiv);
                   var newdiv = document.createElement('div');
-                  newdiv.innerHTML = "Dependent " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
+                  newdiv.innerHTML = "Dependent " + (counter + 1) + " <br><label for=\"firstname\">First Name:</label><input type=\"text\" name=\"f_names[]\" maxlength=\"50\"> <label for=\"lastname\">Last Name:</label><input type=\"text\" name=\"l_names[]\" maxlength=\"50\">";
+                  // <input type='text' name='myInputs[]'>";
                   document.getElementById(divName).appendChild(newdiv);
                   counter++;
              }
