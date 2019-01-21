@@ -40,7 +40,7 @@
           <h1 id="titleText"> Submit New Employee </h1>
     </header>
     
-    <form id="addDiv"> <!-- method = "POST" action="handler.php" -->
+    <form> <!-- method = "POST" action="handler.php" -->
       
       <label for="firstname">First Name:</label>
       <input type="text" name="firstname" maxlength="50">
@@ -58,7 +58,7 @@
       </section>
     </form>
 
-    <section>
+    <section id="addDiv">
         <a href="index.php" id="pageLink">Back to Calculator</a><br>
     </section>
 
