@@ -1,17 +1,27 @@
-<?php session_start(); ?>
+<?php 
+    session_start(); 
+    $myInputs = $_POST["myInputs"];
+    foreach ($myInputs as $eachInput) {
+         echo $eachInput."<br>";
+    }
+?>
 <!DOCTYPE html>
 <html>
   <head>
     <title>Benefits Calculator</title>
     <script type="text/javascript">
-        function addFields()
-        {
-          var div1 = document.createElement('div');
-          // Get template data
-          div1.innerHTML = document.getElementById('newlinktpl').innerHTML;
-          // append to our form, so that template data
-          //become part of form
-          document.getElementById('container').appendChild(div1);
+        var counter = 1;
+        var limit = 3;
+        function addFields(divName){
+             if (counter == limit)  {
+                  alert("You have reached the limit of adding " + counter + " inputs");
+             }
+             else {
+                  var newdiv = document.createElement('div');
+                  newdiv.innerHTML = "Entry " + (counter + 1) + " <br><input type='text' name='myInputs[]'>";
+                  document.getElementById(divName).appendChild(newdiv);
+                  counter++;
+             }
         }
   </script>
   </head>
@@ -28,12 +38,12 @@
       <input type="text" name="lastname" maxlength="50">
       
       <section>
-        <a href="#" onclick="addFields()">Add Dependents</a>
+        <a href="#" onclick="addFields('dynamicInput')">Add Dependents</a>
         <div id="container"/>
       </section>
 
       <section>
-        <p>Click below to submit new employee and/or dependents</p>
+        <p>Click below to SUBMIT new employee and/or dependents</p>
         <input id="button" type="submit" name="submit" value="ADD NEW">
       </section>
     </form>
