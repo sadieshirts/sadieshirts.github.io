@@ -40,7 +40,7 @@
           <h1 id="titleText"> Submit New Employee </h1>
     </header>
     
-    <form> <!-- method = "POST" action="handler.php" -->
+    <form id="addDiv"> <!-- method = "POST" action="handler.php" -->
       
       <label for="firstname">First Name:</label>
       <input type="text" name="firstname" maxlength="50">
@@ -52,7 +52,7 @@
         <div id="container"/>
       </div>
 
-      <section id="addDiv">
+      <section >
         <p>Click below to SUBMIT new employee and/or dependents</p>
         <input id="button" type="submit" name="submit" value="ADD NEW">
       </section>
